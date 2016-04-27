@@ -5,6 +5,8 @@ import java.util.Random;
 public class GenerateTreeCode {
 
     public static String generateTreeCode(Integer nodes) {
+        System.out.println("nodes = " + nodes);
+
         String tour = "";
 
         Integer countNumbersInTour = 0;
@@ -25,12 +27,12 @@ public class GenerateTreeCode {
         while (countNumbersInTour != (2 * nodes - 2)){
             Integer number = random.nextInt(2);
 
-            if (number == 0 && countZero < ((2 * nodes - 2)/2)){
+            if (number == 0 && (countZero < ((2 * nodes - 2)/2) || (countZero == countOne))){
                 tour += "0";
                 countZero++;
                 countNumbersInTour++;
             } else {
-                if (countZero >= countOne){
+                if (countZero > countOne){
                     tour += "1";
                     countOne++;
                     countNumbersInTour++;
