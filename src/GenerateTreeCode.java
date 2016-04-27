@@ -27,7 +27,7 @@ public class GenerateTreeCode {
         while (countNumbersInTour != (2 * nodes - 2)){
             Integer number = random.nextInt(2);
 
-            if (number == 0 && (countZero < ((2 * nodes - 2)/2) && (countZero == countOne))){
+            if (number == 0 && (countZero < ((2 * nodes - 2)/2) || (countZero == countOne))){
                 tour += "0";
                 countZero++;
                 countNumbersInTour++;

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a4005fd7-fb13-4cfc-b065-1f1402f7f9e4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input.txt" afterPath="$PROJECT_DIR$/input.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FileMethods.java" afterPath="$PROJECT_DIR$/src/FileMethods.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GenerateTreeCode.java" afterPath="$PROJECT_DIR$/src/GenerateTreeCode.java" />
     </list>
     <ignored path="TS.iws" />
@@ -51,8 +50,8 @@
       <file leaf-file-name="GenerateTreeCode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GenerateTreeCode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4807198">
-              <caret line="29" column="66" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.61182517">
+              <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -639,12 +638,12 @@
       <option name="number" value="Default" />
       <updated>1461780102853</updated>
       <workItem from="1461780104195" duration="7637000" />
-      <workItem from="1461789807413" duration="1013000" />
+      <workItem from="1461789807413" duration="1106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8650000" />
+    <option name="totallyTimeSpent" value="8743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -786,8 +785,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GenerateTreeCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4807198">
-          <caret line="29" column="66" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.61182517">
+          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
