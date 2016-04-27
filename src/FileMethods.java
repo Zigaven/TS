@@ -17,7 +17,7 @@ public class FileMethods {
             in = new PrintStream(file);
             Random random = new Random();
             for (int j = 0; j < 1; j++) {
-                for (int i = 0; i < random.nextInt(10) + 1; i++) {
+                for (int i = 0; i < random.nextInt(100) + 1; i++) {
                     Integer number = random.nextInt(8) + 1;
                     in.print(number + " ");
                 }
