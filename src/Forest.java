@@ -1,17 +1,26 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Danil Khisamov
  *         11-402
  */
 public class Forest {
-    private ArrayList<Tree> forest;
+    private ArrayList<Tree> trees;
 
-    public ArrayList<Tree> getForest() {
-        return forest;
+    public Forest(List<String> list){
+        trees = new ArrayList<>();
+        for (String treeLine : list){
+            Tree tree = new Tree(treeLine);
+            trees.add(tree);
+        }
     }
 
-    public void setForest(ArrayList<Tree> forest) {
-        this.forest = forest;
+    public ArrayList<Tree> getTrees() {
+        return trees;
+    }
+
+    public void setTrees(ArrayList<Tree> trees) {
+        this.trees = trees;
     }
 }
