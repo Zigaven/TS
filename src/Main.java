@@ -16,5 +16,11 @@ public class Main {
         List<String> listOfTour = GenerateTreeCode.getListOfTour(list);
 
         System.out.println(listOfTour);
+
+        Tree tree1 = new Tree("000101110011");
+        Tree tree2 = new Tree("0101");
+
+        System.out.println(tree1.getList().toString());
+        System.out.println(tree2.getList().toString());
     }
 }

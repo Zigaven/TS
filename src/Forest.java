@@ -6,6 +6,8 @@ import java.util.List;
  *         11-402
  */
 public class Forest {
+    public static Integer globalMax = 1;
+    public static Integer globalKey = 0;
     private ArrayList<Tree> trees;
 
     public Forest(List<String> list){

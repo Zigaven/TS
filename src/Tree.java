@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -5,48 +6,56 @@ import java.util.Stack;
  *         11-402
  */
 public class Tree {
-    private String eTour;
+    private ArrayList<Edge> list;
+    private SplayBST splayTree;
+
 
     public Tree(String s){
-        eTour = makeETour(s);
+        makeEdges(s);
     }
 
-    public String getETour() {
-        return eTour;
+    public ArrayList<Edge> getList() {
+        return list;
     }
 
-    public void setETour(String eTour) {
-        this.eTour = eTour;
+    public void setList(ArrayList<Edge> list) {
+        this.list = list;
     }
 
-    public static String makeETour(String test){
-        int maxV = 1;
-        String eTour = "";
+    public SplayBST getSplayTree() {
+        return splayTree;
+    }
 
+    public void setSplayTree(SplayBST splayTree) {
+        this.splayTree = splayTree;
+    }
+
+    public ArrayList<Edge> makeEdges(String test){
+        list = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
-        stack.push(1);
+        stack.push(Forest.globalMax);
 
         for (int i = 0; i < test.length();i++){
             char c = test.charAt(i);
-
+            Forest.globalKey++;
             if (c == '0'){
-                maxV++;
-                Integer v = maxV;
+                Forest.globalMax++;
+                Integer v = Forest.globalMax;
                 Integer a = stack.peek();
-                eTour = eTour + a + v + " ";
+                list.add(new Edge(Forest.globalKey,a + " " + v));
                 stack.push(v);
             }else if (c == '1'){
                 if (test.length() > 1) {
                     Integer a = stack.pop();
                     Integer b = stack.peek();
-                    eTour = eTour + a + b + " ";
+                    list.add(new Edge(Forest.globalKey,a + " " + b));
                 }else{
-                    return "1";
+                   list.add(new Edge(Forest.globalKey,Forest.globalMax + " " + Forest.globalMax));
                 }
             }
         }
-        eTour = eTour.trim();
-        return eTour;
+        Forest.globalMax++;
+        return list;
     }
 
 }
