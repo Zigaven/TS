@@ -1,3 +1,5 @@
+package old;
+
 import java.lang.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -194,7 +196,7 @@ public class SplayBST {
 
     // test client
     public static void main(String[] args) {
-//        SplayBST<Integer, Integer> st1 = new SplayBST<Integer, Integer>();
+//        old.SplayBST<Integer, Integer> st1 = new old.SplayBST<Integer, Integer>();
 //        st1.put(5, 5);
 //        st1.put(9, 9);
 //        st1.put(13, 13);
@@ -202,7 +204,7 @@ public class SplayBST {
 //        st1.put(1, 1);
 
 
-//        SplayBST st = new SplayBST();
+//        old.SplayBST st = new old.SplayBST();
 //        st.put(1, "128.112.136.11");
 //        st.put(1, "128.112.136.12");
 //        st.put(1, "128.112.136.13");

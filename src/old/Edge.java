@@ -1,3 +1,5 @@
+package old;
+
 import java.util.List;
 
 public class Edge {
@@ -13,7 +15,7 @@ public class Edge {
 
     @Override
     public String toString() {
-        return "Edge{" +
+        return "old.Edge{" +
                 "key=" + key +
                 ", value=" + value +
                 ", left=" + left +
