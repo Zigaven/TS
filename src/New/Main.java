@@ -1,39 +1,58 @@
 package New;
 
 
-import java.util.LinkedList;
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.*;
 
-/**
- * @author Danil Khisamov
- *         11-402
- */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         //generate input.txt file
         FileMethods.generateFile();
 
-        //get list of all lines from input.txt file
-        List<String> list = FileMethods.getDataFromFile();
+        File inputFile = new File("input.txt");
+        File outputFileAdd = new File("resultAdd.txt");
+        File outputFileDelete = new File("resultDelete.txt");
 
-        //get list of tours all trees in one forest
-        List<String> listOfTour = GenerateTreeCode.getListOfTour(list);
-        System.out.println(listOfTour);
+        Scanner scanner = new Scanner(inputFile);
+        PrintStream outputAdd = new PrintStream(outputFileAdd);
+        PrintStream outputDelete = new PrintStream(outputFileDelete);
 
-        //get list of eTours all trees in one forest
-        List<String> listOfETour = GenerateTreeCode.getListOfETour(listOfTour);
-        System.out.println(listOfETour);
+        while (scanner.hasNextLine()){
+            String str = scanner.nextLine();
+            String[] arrStr = str.split(" ");
+            LinkedList<String> listOfTour = new LinkedList<>();
 
-        Forest forest = new Forest(listOfETour);
-        System.out.println(forest.getTrees());
+            Collections.addAll(listOfTour, arrStr);
+            List<String> eTour = GenerateTreeCode.getListOfETour(GenerateTreeCode.getListOfTour(listOfTour));
 
-        for (Tree tree: forest.getTrees()){
-            tree.getAvlTree().print();
-            System.out.println();
+            Forest forest = new Forest(eTour);
+            Forest copyforest = new Forest(eTour);
+
+            for (Tree tree: forest.getTrees()){
+                tree.getAvlTree().print();
+                System.out.println();
+            }
+
+            Random random = new Random();
+
+            long startAdd = System.nanoTime();
+            forest.addEdge(random.nextInt(Forest.globalMax) + 1,random.nextInt(Forest.globalMax) + 1);
+            long timeOfAdd = System.nanoTime() - startAdd;
+
+            outputAdd.println(timeOfAdd);
+
+            long startDelete = System.nanoTime();
+            copyforest.deleteEdge(random.nextInt(Forest.globalMax) + 1,random.nextInt(Forest.globalMax) + 1);
+            long timeOfDelete = System.nanoTime() - startDelete;
+
+            outputDelete.println(timeOfDelete);
+            Forest.globalMax = 1;
         }
 
-
-//        forest.addEdge(3,6);
-        forest.deleteEdge(2,6);
+        scanner.close();
+        outputAdd.close();
+        outputDelete.close();
     }
 }
