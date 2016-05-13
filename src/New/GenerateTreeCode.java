@@ -68,7 +68,7 @@ public class GenerateTreeCode {
             char c = str.charAt(i);
             if (c == '0'){
                 Forest.globalMax++;
-                eTour = eTour + " " +Forest.globalMax;
+                eTour = eTour + " " + Forest.globalMax;
                 stack.push(Forest.globalMax);
             }else if (c == '1'){
                 if (str.length() > 1) {

@@ -8,9 +8,8 @@ class AVL <Key extends Comparable<Key>, Value> {
         Key key;
         Value value;
 
-        private Integer first;
-        private Integer last;
-        private Boolean flag = false;
+        public IndexETour first;
+        public IndexETour last;
 
         private Node left, right, father;
         public Node (Key key, Value value, Node father) {
@@ -21,6 +20,9 @@ class AVL <Key extends Comparable<Key>, Value> {
             this.h = 1;
             this.balance = 0;
         }
+
+
+
         public Node next(){
             return getHigherNode(this.key);
         }
@@ -28,34 +30,11 @@ class AVL <Key extends Comparable<Key>, Value> {
             return getLowerNode(this.key);
         }
 
-        public Integer getFirst() {
-            return first;
-        }
-
-        public void setFirst(Integer first) {
-            this.first = first;
-        }
-
-        public Integer getLast() {
-            return last;
-        }
-
-        public void setLast(Integer last) {
-            this.last = last;
-        }
-
-        public Boolean getFlag() {
-            return flag;
-        }
-
-        public void setFlag(Boolean flag) {
-            this.flag = flag;
-        }
     }
 
 
-    //Возвращает ближайщий узел , больше данного ключа, 
-//если узла с таким ключом нет, то возвращает ближайщий узел, больше заданного ключа. 
+    //Возвращает ближайщий узел , больше данного ключа,
+//если узла с таким ключом нет, то возвращает ближайщий узел, больше заданного ключа.
 //Если нет ближайщего большего позначению,чем заданый ключ, то возвращает null
     private Node getHigherNode(Key key) {
         Node p = root;
@@ -133,7 +112,7 @@ class AVL <Key extends Comparable<Key>, Value> {
         else return x.h - y.h;
     }
 
-    private Node add (Node node,Key key, Value value, Integer indexNumberInETour, Node father){
+    private Node add (Node node, Key key, Value value, IndexETour indexNumberInETour, Node father){
         if (node == null){
             Node newnode = new Node(key,value, father);
             newnode.first = indexNumberInETour;
@@ -204,7 +183,7 @@ class AVL <Key extends Comparable<Key>, Value> {
         return node;
     }
 
-    public void add(Key key, Value value, Integer indexNumberOfETour) {
+    public void add(Key key, Value value, IndexETour indexNumberOfETour) {
         root = add(root, key, value, indexNumberOfETour, null);
     }
 
@@ -273,11 +252,11 @@ class AVL <Key extends Comparable<Key>, Value> {
         return min(node.right);
     }
 
-    private Value get(Node node, Key key){
+    private Node get(Node node, Key key){
         if(node == null) return null;
         int compareResult = key.compareTo(node.key);
         if(compareResult == 0){
-            return node.value;
+            return node;
         }else if(compareResult > 0){
             return get(node.right, key);
         }else{
@@ -285,7 +264,7 @@ class AVL <Key extends Comparable<Key>, Value> {
         }
     }
 
-    public Value get(Key key) {
+    public Node get(Key key) {
         return get(root, key);
     }
 
@@ -295,9 +274,17 @@ class AVL <Key extends Comparable<Key>, Value> {
             for (int i=0;i<level;i++) {
                 System.out.print("\t");
             }
-            System.out.println(node.key + "->" + node.value+" h="+node.h+" balance="+node.balance + " node.first = " + node.first + " node.last = " + node.last);
+            System.out.println(node.key + "->" + node.value+" h="+node.h+" balance="+node.balance + " node.first = " + node.first.value + " node.last = " + node.last.value);
             print(node.left,level+1);
         }
+    }
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
     }
 
     public void print() {

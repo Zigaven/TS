@@ -1,6 +1,7 @@
 package New;
 
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,5 +31,9 @@ public class Main {
             tree.getAvlTree().print();
             System.out.println();
         }
+
+
+//        forest.addEdge(3,6);
+        forest.deleteEdge(2,6);
     }
 }
