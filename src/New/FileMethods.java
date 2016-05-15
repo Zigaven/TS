@@ -16,9 +16,11 @@ public class FileMethods {
             in = new PrintStream(file);
             Random random = new Random();
             for (int j = 0; j < 100; j++) {
-                for (int i = 0; i < random.nextInt(15) + 1; i++) {
-                    Integer number = random.nextInt(50) + 1;
-                    in.print(number + " ");
+                int countNode = 1000 + 2000 * j;
+                while (countNode > 0){
+                        Integer number = random.nextInt(countNode) + 1;
+                        countNode -= number;
+                        in.print(number + " ");
                 }
                 in.println();
             }

@@ -75,6 +75,11 @@ public class Forest {
     }
 
     public void deleteEdge(Integer u, Integer v) {
+        if (u > v) {
+            Integer c = u;
+            u = v;
+            v = c;
+        }
         AVL.Node node1 = null;
         AVL.Node node2 = null;
 
@@ -82,10 +87,7 @@ public class Forest {
 
         boolean find1 = false;
         boolean find2 = false;
-
-        AVL.Node root1 = null;
-        AVL.Node root2 = null;
-
+        
         Iterator<Tree> treeIterator = trees.iterator();
         while (treeIterator.hasNext() && (find1 == find2)) {
             Tree tree = treeIterator.next();
@@ -123,8 +125,12 @@ public class Forest {
 
             IndexETour nextNextNewTail = nextNewTail.next;
             nextNewTail.next = null;
-            nextNextNewTail.prev = prevNewRoot;
-            prevNewRoot.next = nextNextNewTail;
+            if (nextNextNewTail != null) {
+                nextNextNewTail.prev = prevNewRoot;
+                prevNewRoot.next = nextNextNewTail;
+            }else{
+                prevNewRoot.next = null;
+            }
 
             trees.add(newTree);
             tree1.printETour();

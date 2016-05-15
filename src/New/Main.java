@@ -41,12 +41,14 @@ public class Main {
             forest.addEdge(random.nextInt(Forest.globalMax) + 1,random.nextInt(Forest.globalMax) + 1);
             long timeOfAdd = System.nanoTime() - startAdd;
 
+            outputAdd.print(Forest.globalMax - 1 + " ");
             outputAdd.println(timeOfAdd);
 
             long startDelete = System.nanoTime();
             copyforest.deleteEdge(random.nextInt(Forest.globalMax) + 1,random.nextInt(Forest.globalMax) + 1);
             long timeOfDelete = System.nanoTime() - startDelete;
 
+            outputDelete.print(Forest.globalMax - 1 + " ");
             outputDelete.println(timeOfDelete);
             Forest.globalMax = 1;
         }
